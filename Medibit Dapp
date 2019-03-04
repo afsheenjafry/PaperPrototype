@@ -1,0 +1,63 @@
+
+PAPER PROTOTYPE 
+
+
+
+1. Preliminaries for infrastructure development 
+
+BLOCKCHAIN NETWORK
+
+The blockchain is a distributed database that contains an ordered list of records linked together through a chain, on blocks. Blocks can be described as sets of individual entities that hold information pertaining to some transactions, for example, financial transactions or medical reports, etc. The blockchain maintains a continuously growing list of records which are distributed and immutable. It is for this reason that many systems built on the blockchain technology achieve secure distribution of assets amongst untrusted clients. 
+For a client “A”  (lets say a patient seeking 2nd opinion) who wants to transfer an asset (her medical reports) to a client “B” (a healthcare practitioner), the asset is verified by sets of nodes and ownership of such an asset is tagged to the client “A”. The client transfers the asset through a channel to “B” who becomes the new owner of this asset. All these records of verification, transfer, and change of ownership are recorded in a public database for future transactions and references. In cases where there is a malicious activity, verifying nodes can trace the attributes of the record and resolve the issues. For such systems, there is a need for a database that is highly immutable and provably secure. For transactions between clients who have no idea of the identities of each other, there is an equal need for a system to allow a trust-less but secure transaction between such parties. The blockchain is a perfect fit for resolving these problems associated with trust and change in data in cloud storage. It is highly distributed; which means that every single client part of the network has records of every valid transaction completed on the network. The properties of the blockchain that make it attractive for secure sharing of data are its immutability and “trust-less” transaction execution (Adapted from Xia et al., 2017)
+Cryptographic Keys 
+
+Cryptographic keys denote the sets of keys established to perform tasks pertaining to the security of a system. For the blockchain-based scheme, keys will perform roles in relation to a. user authentication and membership, b. user verification, c. request generation, and d. request authentication. These keys help to guarantee a level of security of the scheme. The keys include: 
+Membership issuing keys
+Membership verification keys
+Membership private keys
+Transaction private keys
+Transaction public keys
+
+Membership Authentication and Verification  
+For a user to join the authorised blockchain, there is the need for membership authentication. The verification and acquisition of a user’s identity used to generate specific keys in relation to the user needs to be secure through already established systems. Our system will adapt an efficient and secure identity-based authentication and key agreement protocol that guarantees user anonymity as a means to which membership authentication is achieved. Methods necessary setting up a new user as a member into the system is categorised into two parts a. cryptographic techniques; b. sharing of information for account registration and verification for the user.
+
+Pool of Unprocessed Requests 
+
+The pool of unprocessed requests (in our case, logging in to the system, waiting for an appointment etc.) is a data pool of blocks which contain requests created by the user for the purpose of contributing data or accessing data from the storage. The consensus node is the entity that fetches data from the pool for processing. Attention should be drawn to the fact that blocks found in the pool are not chained together. They are tagged with a timestamp as in when they arrived in the pool. A suitable algorithm is necessary to define the order at which such blocks will be fetched and processed. A point worth noting is that the pool of unprocessed requests and the blockchain network are two separate entities which are not linked together in any way. The only characteristic between them is the consensus node. 
+
+SYSTEM DESIGN 
+
+Our system will be formulated as data sharing mechanism used by the blockchain-based medical data sharing infrastructure. This infrastructure will include three entities, namely the a. user (patient and medical practitioner), b. system management (issuer, verifier and consensus nodes); and c. storage, as shown below in fig 4.1 and 4.2.
+
+
+2. Decentralised-app development 
+
+MDB-Intelligence-Development of Blockchain-Based Trusted Review Platform
+
+Through creating and implementing the first Blockchain-based system for trusted Medibit consultation and consultation reviews, the Medibitcoin Network will allow patients’ voices to be heard whereas healthcare practitioners will have access to up-to-date, extremely valuable market research data and qualified patient feedback. This data will be the most powerful tool to improve service quality and to establish a loyal patient base. 
+Through a self-executing Smart Contract, the Medibit review platform will assure optimal autonomy, trust, speed, and safety thus mitigating any risks in connection with manipulations. The blockchain-based feedback system (smart contract) will trigger a dynamic movement in patients and healthcare providers to open MDB-partner wallets. There will be a Medibit community that will create the prerequisites for the future steps. These steps will be taken to penetrate the global market providing valuable market research. At this moment in time, Medibit’s developers are working on the frontend, the database and the smart contract.
+This platform is under construction. Before it is presented in the market, the STO crowd-sales would generate 3rd round of funding for the business. STO-crowd sales is planned for Spring’19. Once the STO begins, the marketing global expansion will be implemented, resulting in creating a rapid growing Medibit Community. 
+Technical Design Overview & Philosophy
+
+Medibit DApp will be built on top of several existing protocols, open-source libraries, and distributed systems. These prior developments in blockchain space, makes Medibit DApp possible today. The Medibit Platform will be built upon the Ethereum blockchain, which is the most widely adopted cryptocurrency platform enabling smart contracts to execute on the blockchain. Important transactional data such as consultant’s fee and availability are stored directly on the blockchain. Other metadata such as descriptions, images, reputation, and reviews are stored on the Interplanetary File System (IPFS) and cryptographically linked to the contract. This allows for better scaling and minimises the expensive computing and storage costs associated with doing everything on chain. When a data object is created in the frontend decentralised application (e.g., patient’s profile object) and stored on IPFS, a unique IPFS content hash is created to reference this data. This hash is then stored on the Ethereum blockchain. IPFS is a content-addressable, distributed file system, allowing us to trust the integrity of the data even though it is stored outside of the Ethereum network. Storage on the IPFS network is also expected to be significantly cheaper than on the blockchain at the time of this writing. Filecoin-a decentralised storage network will add an important incentive system to ensure the longevity of this data on the IPFS network. It is anticipated that several intended major advances in both Ethereum (Plasma and sharding) and IPFS (use of Filecoin as incentive to increase network speeds and reliability) will significantly improve Medibit Platform’s scalability and usability over time.
+
+In addition, three overarching goals in our architecture design are aimed. First, it is intended to keep everything as distributed and trust-less as possible along with balancing the need for performance and scalability. The aim is to avoid single points of failure of our architecture like relying on a single centralised provider. Second, we want to stay within the Ethereum ecosystem and avoid reinventing the wheel whenever possible. Lastly, we are aiming to carefully balance performance and computation efficiency with user experience. As known, having the best architecture in the world, without any user, is pointless.
+
+Medibit Decentralised Application 
+
+Medibit decentralised application (DApp) will be an open-source HTML and JavaScript application enabling patients and consultants to connect, communicate, and transact with each other. The DApp further allows consultants a user-friendly way to create, manage, validate and publish listings. The DApp will use js-ipfs4 for connecting to the IPFS network and web3.js5 for smooth integrations with popular browser clients like Mist6, MetaMask7, and Toshi8. The Medibit DApp will be the first DApp that interacts with the Medibit developer libraries and protocols, but we expect developers to create alternatives offering differentiated user experiences for specific use cases or verticals.Medibit Developer Libraries 
+
+Although a dramatic increase in the number of projects pursuing blockchain development in recent times is observed, however, vast majority of software engineers are not familiar with the specific technical challenges of building on the blockchain. At present Solidity is the preferred language for developing on Ethereum. Solidity is actively being developed and consequently changes frequently. There are unique architecture and security issues that come along with building on the Ethereum blockchain. To make the Medibit Platform easier to use, we aim to release the Medibit developer libraries, so that much of complexities can be addressed. These will be open-source libraries that are designed to be much easier to use than directly interfacing with the blockchain and IPFS. Medibit.js, a Javascript library designed to enable web application developers to get started with the Medibit Platform in a much shorter time frame, is aimed to be released. The Github repository for Medibit.js will soon be available on GitHub. Over the period of time, it is expected that third-party developers would develop additional libraries in different programming languages to interface with the Medibit protocols and shared data layer.
+
+Medibit Protocols  
+
+The Medibit Platform includes a series of open-source protocols that define standards for marketplace functionalities like patient and consultant’s identity, user reputation, listing creation and publishing, representation of booking intervals and rules, and transaction stages. These protocols are enabled by Solidity smart contracts and IPFS. For example, ERC-7259 identity standard will be used in conjunction with the Medibit User Registry to enable user identity on Medibit-enabled marketplace. We also aim to frequently update developer documentation describe a full set of protocols that are used across the platform. The Github repository for various smart contracts will be available within the /contracts directory in the same repository as Medibit.js.
+
+
+Platform Components Interaction 
+
+We are still working on this section and would be providing the details soon. Thanks for your continued support. 
+
+Medibit Token
+Medibit Token (MDB) is an ERC20 token. The Token will take full advantage of the Ethereum network’s built-in wallets, developer tools, to create easy-to-use experience resulting ease of use. Medibit Tokens are intended to be used for all the transaction carried out on the Medibit Platform. Tokens may also be used to incentivise various forms of participation from the Platform’s ecosystem participants. For example rewarding patients and consultants to leave feedback and reviews about user experience. Second, users will be rewarded for taking actions on the Platform, with the goal of creating disincentives for malicious or fraudulent behaviour. Third patients will also be rewarded to share their data with our partners for research and development purposes. ￼  Qi Xia *, Emmanuel Boateng Sifah, Abla Smahi, Sandro Amofa and Xiaosong Zhang (2017)  BBDS: Blockchain-Based Data Sharing for Electronic MDBcal Records in Cloud Environments , MDPI
+
